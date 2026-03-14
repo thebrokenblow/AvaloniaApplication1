@@ -13,11 +13,11 @@
      </StackPanel>
 
      <StackPanel Orientation="Horizontal" Width="500" Margin="0 0 0 20">
-         <StackPanel Width="90" Margin="0 0 5 0" VerticalAlignment="Center">
-             <TextBlock Text="Сообщение: "/>
-             <TextBlock Name="CounterSymbols" 
-                        Text="0 / 140" />
-         </StackPanel>
+                         <StackPanel Width="90" Margin="0 0 5 0" VerticalAlignment="Center">
+                             <TextBlock Text="Сообщение: "/>
+                             <TextBlock Name="CounterSymbols" 
+                                        Text="0 / 140" />
+                         </StackPanel>
               <TextBox Name="TextFiled" 
                        TextWrapping="Wrap" 
                        MaxLength="140" 
