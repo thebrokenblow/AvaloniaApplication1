@@ -1,52 +1,43 @@
 using Avalonia.Controls;
-using Avalonia.Input;
 using Avalonia.Interactivity;
-using System.IO;
 
 namespace AvaloniaApplication1;
 
 public partial class MainWindow : Window
 {
-    private const int MaxLengthMessage = 140;
-    private const string FilePath = "C:\\Users\\artem\\Desktop\\test.txt";
-
     public MainWindow()
     {
         InitializeComponent();
-
-        var messageFromFile = File.ReadAllText(FilePath);
-        SendMessage.Text = messageFromFile;
     }
 
-    private void TextBox_TextChanged(object? sender, TextChangedEventArgs e)
+    private void Button_Click_FirstQuestion(object? sender, RoutedEventArgs e)
     {
-        CounterSymbols.Text = $"{TextFiled?.Text?.Length} / {MaxLengthMessage}";
-    }
-
-    private void TextBox_KeyDown(object? sender, KeyEventArgs e)
-    {
-        if (e.Key == Key.Enter)
+        if (Russia.IsChecked.Value &&
+            UK.IsChecked.Value &&
+            France.IsChecked.Value &&
+            !Germany.IsChecked.Value &&
+            !Austria_Hungary.IsChecked.Value &&
+            !Turkey.IsChecked.Value
+            )
         {
-            SaveMessage();
-            ResetCounter();
+            FirstResult.Text = "Ответ правильный";
+        }
+        else
+        {
+            FirstResult.Text = "Ответ неверный";
         }
     }
 
-    private void Button_Click(object? sender, RoutedEventArgs e)
-    {
-        SaveMessage();
-        ResetCounter();
-    }
 
-    private void SaveMessage()
+    private void Button_Click_SecondQuestion(object? sender, RoutedEventArgs e)
     {
-        SendMessage.Text = TextFiled.Text;
-        File.WriteAllText(FilePath, TextFiled.Text);
-    }
-
-    private void ResetCounter()
-    {
-        TextFiled.Text = "";
-        CounterSymbols.Text = $"0 / {MaxLengthMessage}";
+        if (SecondAnswer988.IsChecked.Value)
+        {
+            SecondResult.Text = "Ответ правильный";
+        }
+        else
+        {
+            SecondResult.Text = "Ответ неверный";
+        }
     }
 }

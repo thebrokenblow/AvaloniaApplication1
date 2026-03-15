@@ -2,37 +2,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="850"
         x:Class="AvaloniaApplication1.MainWindow"
         Title="AvaloniaApplication1">
- <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+ <StackPanel HorizontalAlignment="Center">
+     <StackPanel Margin="0 0 0 20">
+         <TextBlock Width="350" 
+                Height="60" 
+                TextWrapping="Wrap" 
+                TextAlignment="Center" 
+                Text="Какие из перечисленных стран входили в состав Антанты (военно-политического блока) к началу Первой мировой войны (1914 год)?"/>
+         <CheckBox Name="Russia" Content="Российская империя"/>
+         <CheckBox Name="Germany" Content="Германская империя"/>
+         <CheckBox Name="UK" Content="Великобритания"/>
+         <CheckBox Name="Austria_Hungary" Content="Австро-Венгрия"/>
+         <CheckBox Name="France" Content="Франция"/>
+         <CheckBox Name="Turkey" Content="Османская империя"/>
 
-      <StackPanel Orientation="Horizontal" Width="500" Margin="0 0 0 20">
-         <TextBlock Text="Отправленное сообщение: "/>
-         <TextBlock Name="SendMessage" Width="200" />
+         <TextBlock Name="FirstResult"/>
+
+         <Button Content="Отправить ответ" Click="Button_Click_FirstQuestion"/>
      </StackPanel>
+     <StackPanel>
+         <TextBlock Width="350" 
+                Height="60" 
+                TextWrapping="Wrap" 
+                TextAlignment="Center" 
+                Text="В каком году произошло крещение Руси, ставшее одним из важнейших событий в истории Древнерусского государства?"/>
 
-     <StackPanel Orientation="Horizontal" Width="500" Margin="0 0 0 20">
-                         <StackPanel Width="90" Margin="0 0 5 0" VerticalAlignment="Center">
-                             <TextBlock Text="Сообщение: "/>
-                             <TextBlock Name="CounterSymbols" 
-                                        Text="0 / 140" />
-                         </StackPanel>
-              <TextBox Name="TextFiled" 
-                       TextWrapping="Wrap" 
-                       MaxLength="140" 
-                       Width="345" 
-                       Height="60" 
-                       Margin="0 0 10 0"
-                       KeyDown="TextBox_KeyDown" 
-                       TextChanged="TextBox_TextChanged"/>
+         <RadioButton Name="SecondAnswer862" Content="862 г." GroupName="SecondQuestion"/>
+         <RadioButton Name="SecondAnswer988" Content="988 г." GroupName="SecondQuestion"/>
+         <RadioButton Name="SecondAnswer1054" Content="1054 г." GroupName="SecondQuestion"/>
+         <RadioButton Name="SecondAnswer1240" Content="1240 г." GroupName="SecondQuestion"/>
 
-              <Button Width="50"
-                      Content="➤" 
-                      Height="30" 
-                      VerticalContentAlignment="Center"
-                      HorizontalContentAlignment="Center" 
-                      Click="Button_Click"/>
-         </StackPanel>
-    </StackPanel>
+         <TextBlock Name="SecondResult"/>
+         <Button Content="Отправить ответ" Click="Button_Click_SecondQuestion"/>
+     </StackPanel>
+ </StackPanel>
 </Window>
